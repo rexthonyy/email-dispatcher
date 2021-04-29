@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email dispatcher</title>
+</head>
+<body>
+    <h1>Email dispatcher API</h1>
+    <p>This application provides you with an api to send emails. It is implemented using the node mailer package.</p>
+
+    <h2> Before usage</h2>
+    <p>This application uses the gmail service so ensure that you have enabled <b>less secure app</b>
+    permission for your gmail account</b></p>
+
+    <h2>Versions</h2>
+    <ul>
+        <li>v1 (latest version)</li>
+    </ul>
+
+    <h2>Example usage</h2>
+    <pre>
+        let user = userInput.value;
+        let pass = passInput.value;
+        let from = fromInput.value;
+        let to = toInput.value;
+        let subject = subjectInput.value;
+        let html = htmlInput.value;
+
+        let data = { 
+            user: user, 
+            pass: pass, 
+            from: from,
+            to: to,
+            subject: subject,
+            html: html
+        };
+        let url = "http://localhost:3000/api/v1";
+
+        sendPostRequest(url, data)
+            .then(json => {
+                console.log(json); //success { status: 'success'} | failed { status: 'failed', message: 'error message'}
+            }).catch(err => {
+                console.error(err);
+            });
+
+        async function sendPostRequest(url, data) {
+            let response = await fetch(url, {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            });
+
+            let json = await response.json();
+
+            return json;
+        }
+    </pre>
+
+    <h2>Parameters</h2>
+    <dl>
+        <dt>user</dt>
+        <dd>This is the gmail address through which the email will be sent. Make sure it has <b>Less secure app</b> permission enabled</b></dd>
+
+        <dt>pass</dt>
+        <dd>The password of the gmail account used to send the email</dd>
+
+        <dt>from</dt>
+        <dd>A String identifying who sent the email</dd>
+
+        <dt>to</dt>
+        <dd>A comma seperated list of email address recipients</dd>
+
+        <dt>subject</dt>
+        <dd>The subject of the email to be displayed in the list view</dd>
+
+        <dt>html</dt>
+        <dd>The email message to be formated in html</dd>
+    </dl>
+</body>
+</html>
