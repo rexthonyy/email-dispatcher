@@ -15,4 +15,6 @@ app.use(express.static('public'));
 
 app.use('/api', apiRouter);
 
-app.listen(process.env.port, () => console.log(`Server started at ${process.env.port}`));
+let port = process.env.port || process.env.PORT;
+
+app.listen(port, () => console.log(`Server started at ${port}`));
