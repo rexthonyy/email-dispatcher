@@ -1,21 +1,21 @@
 {
-  "name": "email-dispatcher",
-  "version": "1.0.0",
-  "description": "An API to send email using gmail",
-  "main": "server.js",
-  "scripts": {
-    "devStart": "nodemon server.js",
-    "start": "node server.js"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "dotenv": "^8.2.0",
-    "express": "^4.17.1",
-    "nodemailer": "^6.6.0"
-  },
-  "devDependencies": {
-    "nodemon": "^2.0.7"
-  }
+    "name": "email-dispatcher",
+    "version": "1.0.0",
+    "description": "An API to send email using nodemailer either from gmail or a custom server",
+    "main": "server.js",
+    "scripts": {
+        "devStart": "nodemon server.js",
+        "start": "node server.js"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "dotenv": "^8.2.0",
+        "express": "^4.17.1",
+        "nodemailer": "^6.6.0"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.7"
+    }
 }
