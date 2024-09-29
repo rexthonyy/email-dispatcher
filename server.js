@@ -1,7 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const apiRouter = require('./routes/api');
-//UPDATE
+
 const app = express();
 
 app.use(express.json());
